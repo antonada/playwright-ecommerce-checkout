@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout | Tidepool Supply</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script type="module" src="/js/checkout.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/">Tidepool Supply</a>
+      <nav aria-label="Main">
+        <a href="/">Shop</a>
+        <a class="cart-link" href="/cart.html">Cart <span class="badge" data-testid="cart-count">0</span></a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Checkout</h1>
+
+      <div class="empty-state" data-testid="checkout-empty" hidden>
+        <p>Your cart is empty, so there's nothing to check out yet.</p>
+        <a class="button" href="/">Back to the shop</a>
+      </div>
+
+      <section class="confirmation" data-testid="order-confirmation" hidden>
+        <h2>Thanks, your order is in!</h2>
+        <p>Your order number is <strong data-testid="order-number"></strong>.</p>
+        <p>We've sent a receipt to <span data-testid="confirmation-email"></span>.</p>
+        <a class="button" href="/">Keep shopping</a>
+      </section>
+
+      <div class="checkout-layout" data-testid="checkout-content" hidden>
+        <form class="checkout-form" data-testid="checkout-form" novalidate>
+          <fieldset>
+            <legend>Contact</legend>
+            <div class="field">
+              <label for="fullName">Full name</label>
+              <input id="fullName" name="fullName" autocomplete="name" aria-describedby="error-fullName" />
+              <p class="field-error" id="error-fullName" data-testid="error-fullName"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" aria-describedby="error-email" />
+              <p class="field-error" id="error-email" data-testid="error-email"></p>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" aria-describedby="error-phone" />
+              <p class="field-error" id="error-phone" data-testid="error-phone"></p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Shipping address</legend>
+            <div class="field">
+              <label for="address">Street address</label>
+              <input id="address" name="address" autocomplete="street-address" aria-describedby="error-address" />
+              <p class="field-error" id="error-address" data-testid="error-address"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" autocomplete="address-level2" aria-describedby="error-city" />
+                <p class="field-error" id="error-city" data-testid="error-city"></p>
+              </div>
+              <div class="field">
+                <label for="zip">Postal code</label>
+                <input id="zip" name="zip" autocomplete="postal-code" aria-describedby="error-zip" />
+                <p class="field-error" id="error-zip" data-testid="error-zip"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment</legend>
+            <p class="hint">This is a demo. Use a test card like 4242 4242 4242 4242.</p>
+            <div class="field">
+              <label for="cardNumber">Card number</label>
+              <input id="cardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" aria-describedby="error-cardNumber" />
+              <p class="field-error" id="error-cardNumber" data-testid="error-cardNumber"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="expiry">Expiry date</label>
+                <input id="expiry" name="expiry" placeholder="MM/YY" autocomplete="cc-exp" aria-describedby="error-expiry" />
+                <p class="field-error" id="error-expiry" data-testid="error-expiry"></p>
+              </div>
+              <div class="field">
+                <label for="cvv">CVV</label>
+                <input id="cvv" name="cvv" inputmode="numeric" autocomplete="cc-csc" aria-describedby="error-cvv" />
+                <p class="field-error" id="error-cvv" data-testid="error-cvv"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="banner banner--error" role="alert" data-testid="form-error" hidden></div>
+          <button type="submit" class="button button--wide">Place order</button>
+        </form>
+
+        <aside class="summary" aria-label="Order summary">
+          <ul class="summary__items" data-testid="summary-items"></ul>
+          <dl>
+            <div>
+              <dt>Subtotal</dt>
+              <dd data-testid="summary-subtotal"></dd>
+            </div>
+            <div>
+              <dt>Shipping</dt>
+              <dd data-testid="summary-shipping"></dd>
+            </div>
+            <div class="summary__total">
+              <dt>Total</dt>
+              <dd data-testid="summary-total"></dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
