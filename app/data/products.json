@@ -1,0 +1,14 @@
+[
+  { "id": "p-101", "name": "Trail Runner Backpack 22L", "category": "Bags", "price": 6900, "stock": 14 },
+  { "id": "p-102", "name": "Weekender Duffel Bag", "category": "Bags", "price": 8450, "stock": 6 },
+  { "id": "p-103", "name": "Waxed Canvas Tote", "category": "Bags", "price": 3800, "stock": 22 },
+  { "id": "p-201", "name": "Wireless Headphones Pro", "category": "Audio", "price": 12900, "stock": 9 },
+  { "id": "p-202", "name": "Studio Headphones", "category": "Audio", "price": 8900, "stock": 4 },
+  { "id": "p-203", "name": "Pocket Bluetooth Speaker", "category": "Audio", "price": 4500, "stock": 30 },
+  { "id": "p-301", "name": "Insulated Water Bottle 750ml", "category": "Outdoor", "price": 2400, "stock": 50 },
+  { "id": "p-302", "name": "Camping Headlamp", "category": "Outdoor", "price": 1950, "stock": 18 },
+  { "id": "p-303", "name": "Merino Wool Beanie", "category": "Apparel", "price": 2900, "stock": 25 },
+  { "id": "p-304", "name": "Packable Rain Jacket", "category": "Apparel", "price": 11500, "stock": 7 },
+  { "id": "p-401", "name": "Ceramic Pour-Over Coffee Set", "category": "Kitchen", "price": 4000, "stock": 11 },
+  { "id": "p-402", "name": "Cast Iron Skillet 10\"", "category": "Kitchen", "price": 3600, "stock": 16 }
+]

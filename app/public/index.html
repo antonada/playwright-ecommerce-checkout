@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop | Tidepool Supply</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script type="module" src="/js/shop.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/">Tidepool Supply</a>
+      <nav aria-label="Main">
+        <a href="/">Shop</a>
+        <a class="cart-link" href="/cart.html">Cart <span class="badge" data-testid="cart-count">0</span></a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Find something good</h1>
+
+      <form class="search" role="search" data-testid="search-form">
+        <label class="visually-hidden" for="search-input">Search products</label>
+        <input id="search-input" type="search" name="q" placeholder='Try "headphones" or "bags"' autocomplete="off" />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="banner banner--error" role="alert" data-testid="error-banner" hidden>
+        <div>
+          <strong>Couldn't load products.</strong>
+          <span class="banner__detail"></span>
+        </div>
+        <button type="button" class="button button--secondary" data-action="retry">Try again</button>
+      </div>
+
+      <p class="loader" role="status" data-testid="loader" hidden>Loading products...</p>
+      <p class="results-summary" data-testid="results-summary" aria-live="polite"></p>
+      <p class="empty-state" data-testid="empty-results" hidden></p>
+
+      <ul class="product-grid" data-testid="product-list"></ul>
+
+      <p class="toast" data-testid="toast" role="status" aria-live="polite"></p>
+    </main>
+  </body>
+</html>
