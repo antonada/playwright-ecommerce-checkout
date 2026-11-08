@@ -8,10 +8,10 @@ Out of scope: real payments, auth, performance and load testing.
 
 ## Approach
 
-- **UI tests** run in Chromium, Firefox, WebKit and a Pixel 7 viewport.
-- **API tests** hit the Express server directly with Playwright's `request` fixture, no browser involved.
-- **Backend failures** are simulated in the browser with `page.route()`. The real server stays untouched, so every failure case is predictable and fast.
-- **Timeouts** use `page.clock` to skip ahead instead of waiting 8 real seconds.
+- UI tests run in Chromium, Firefox, WebKit and a Pixel 7 viewport.
+- API tests hit the Express server directly with Playwright's `request` fixture, no browser involved.
+- Backend failures are simulated in the browser with `page.route()`. The real server stays untouched, so every failure case is predictable and fast.
+- Timeouts use `page.clock` to skip ahead instead of waiting 8 real seconds.
 - Each test gets a fresh browser context. Tests that need a filled cart seed it through `localStorage` rather than clicking through the shop.
 
 ## Test cases

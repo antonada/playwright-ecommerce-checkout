@@ -23,7 +23,7 @@ The clip shows four tests in a slowed-down run: the full purchase flow, a search
 | End to end          |     1 | Search to order confirmation, including a check of the request body sent to the API                  |
 | API (no browser)    |    11 | Response shape, server-side validation, prices taken from the catalog instead of the client          |
 
-UI tests run in Chromium, Firefox, WebKit and a mobile Chrome viewport (Pixel 7), so a full run is **227 tests**. Every case is listed in the [test plan](docs/TEST_PLAN.md), and the latest results are in the [test report](docs/TEST_REPORT.md).
+UI tests run in Chromium, Firefox, WebKit and a mobile Chrome viewport (Pixel 7), so a full run is 227 tests. Every case is listed in the [test plan](docs/TEST_PLAN.md), and the latest results are in the [test report](docs/TEST_REPORT.md).
 
 ## Running it
 
@@ -91,19 +91,23 @@ await page.clock.runFor(8_500);
 await expect(shopPage.errorBanner).toContainText('The store is taking too long to respond.');
 ```
 
-## A few decisions worth explaining
+## Design notes
 
-- **Locators.** Role and label first (`getByRole`, `getByLabel`), `data-testid` only where there's nothing meaningful to grab, like the cart badge or line totals. This also keeps the app reasonably accessible, because the tests fail if a label goes missing.
-- **Page objects stay thin.** They hold locators and a few actions. Assertions live in the specs so you can read a test and see what it checks.
-- **Seeding the cart.** Cart and checkout tests put items straight into `localStorage` through a fixture instead of clicking through the shop each time. Only the end-to-end test goes the long way.
-- **Shared validation.** The checkout rules are in one module used by both the browser and the server. The API tests make sure the server enforces them too, since client-side checks are easy to skip.
-- **No sleeps.** Everything waits on web-first assertions. The suite passes with `--repeat-each=3`.
+Locators go role and label first (`getByRole`, `getByLabel`). `data-testid` is only used where there's nothing better to grab, like the cart badge or line totals. Nice side effect: if a label goes missing, tests fail, so the app stays reasonably accessible.
+
+Page objects are thin. They hold locators and a few actions, and assertions stay in the specs, so you can read a test and see what it checks.
+
+Cart and checkout tests put items straight into `localStorage` through a fixture instead of clicking through the shop every time. Only the end-to-end test goes the long way.
+
+The checkout rules live in one module that both the browser and the server import. The API tests check that the server enforces them too, since client-side checks are easy to bypass.
+
+There are no sleeps anywhere. Everything waits on web-first assertions, and the suite passes with `--repeat-each=3`.
 
 ## CI
 
 [GitHub Actions](.github/workflows/playwright.yml) runs lint and the full suite on every push and pull request. The HTML report (with traces for retried tests) and JUnit XML are uploaded as artifacts, and the report from `main` is published to GitHub Pages:
 
-**https://antonada.github.io/playwright-ecommerce-checkout/**
+https://antonada.github.io/playwright-ecommerce-checkout/
 
 ## Ideas for later
 
