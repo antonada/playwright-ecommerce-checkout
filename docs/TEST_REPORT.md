@@ -8,9 +8,9 @@ https://antonada.github.io/playwright-ecommerce-checkout/, and every run is list
 
 |              |                                                                                                    |
 | ------------ | -------------------------------------------------------------------------------------------------- |
-| Date         | 5 November 2026                                                                                    |
-| Commit       | `959d17d`                                                                                          |
-| CI run       | [#42039374230](https://github.com/antonada/playwright-ecommerce-checkout/actions/runs/42039374230) |
+| Date         | 8 November 2026                                                                                    |
+| Commit       | `bcbd01d`                                                                                          |
+| CI run       | [#42493944558](https://github.com/antonada/playwright-ecommerce-checkout/actions/runs/42493944558) |
 | Environment  | GitHub Actions, `ubuntu-26.04`, Node 22, Playwright 1.63, 2 workers                                |
 | Result       | **227 passed**, 0 failed, 0 flaky, 0 skipped                                                       |
 | Duration     | 1.7 min for the test step                                                                          |
